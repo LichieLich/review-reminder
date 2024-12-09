@@ -1,0 +1,15 @@
+ru:
+  activerecord:
+    errors:
+      models:
+        project: 
+          blank: не выбран
+    models:
+      project: проект
+    attributes:
+      project:
+        auth_token: Токен авторизации
+        created_at: Создан
+        link: Ссылка
+        name: Имя
+        platform: Платформа

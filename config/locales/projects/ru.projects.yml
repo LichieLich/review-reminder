@@ -1,0 +1,19 @@
+ru:
+  projects:
+    attributes:
+      auth_token: Токен авторизации
+      created_at: Создан
+      link: Ссылка
+      name: Имя
+      platform: Платформа
+    create:
+      success: Проект успешно создан
+    current_reviews: Текущие ревью
+    destroy:
+      confirm: Вы уверены, что хотите удалить проект?
+      success: Проект успешно удалён
+    links:
+      back_to_projects: Назад к проектам
+      save: Сохранить проект
+    new_project: Новый проект
+    
