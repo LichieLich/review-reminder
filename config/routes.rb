@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :projects
   devise_for :users
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
@@ -11,7 +12,9 @@ Rails.application.routes.draw do
   # get "service-worker" => "rails/pwa#service_worker", as: :pwa_service_worker
 
   # Defines the root path route ("/")
-  root 'home#index'
+  root 'projects#index'
+
+  resources :projects, only: %i[index create new edit update destroy]
 
   # devise_for :users, controllers: { sessions: 'users/sessions' }
 end
