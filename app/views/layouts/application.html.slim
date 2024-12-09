@@ -19,4 +19,11 @@ html
     = javascript_importmap_tags
     = stylesheet_link_tag "application", "data-turbo-track": "reload"
   body
-    = yield
+    = render 'layouts/nav'
+    .container
+      .my-4
+        - if flash[:notice]
+          .alert.alert-info = flash[:notice]
+        - if flash[:alert]
+          .alert.alert-danger = flash[:alert]
+      = yield
