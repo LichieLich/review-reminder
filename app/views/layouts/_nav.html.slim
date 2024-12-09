@@ -1,0 +1,16 @@
+.container
+  .d-flex.flex-wrap.align-items-center.justify-content-between.justify-content-md-between.py-3.mb-4.border-bottom
+    .navbar.navbar-expand-md.navbar-light.me-auto
+      nav_menu_item.me-2 = link_to t('navigation.links.home'), root_path, class: 'nav-link'
+      - if user_signed_in?
+        .collapse.navbar-collapse
+          ul.nav.nav-pills.flex-grow-1.navbar-nav.me-auto
+            / TODO: Подсветка выделенных элементов меню
+            nav_menu_item.me-2 = link_to t('navigation.links.repositories'), root_path, class: 'nav-link'
+    ul.nav.nav-pills
+      - if user_signed_in?
+        nav_menu_item.me-2.nav-link.text-dark = t('navigation.hello', user_name: current_user.email)
+        nav_menu_item.me-2 = button_to t('navigation.links.log_out'), destroy_user_session_path, method: :delete, class: 'nav-link text-dark'
+      - else
+        nav_menu_item.me-2 = button_to t('navigation.links.log_in'), new_user_session_path, data: { turbo: false },
+          method: :post, class: 'nav-link text-dark'
