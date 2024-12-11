@@ -1,8 +1,10 @@
 / p style="color: green" = notice
 
-h1 = @project.name
+h1 = t('projects.all_projects')
 
-h2 = t("projects.current_reviews")
+.projects_container
+  - @projects.each do |project|
+    = link_to project.name, project_path(project)
 
 
 = link_to t("projects.new_project"), new_project_path

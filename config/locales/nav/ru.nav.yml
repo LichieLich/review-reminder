@@ -3,7 +3,7 @@ ru:
     hello: 'Добро пожаловать, %{user_name}'
     title: 'Ревьюшница'
     links:
-      home: На главную
+      projects: Проекты
       log_in: Войти
       log_out: Выйти
       statistics: Статистика

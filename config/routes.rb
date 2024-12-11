@@ -12,9 +12,9 @@ Rails.application.routes.draw do
   # get "service-worker" => "rails/pwa#service_worker", as: :pwa_service_worker
 
   # Defines the root path route ("/")
-  root 'projects#index'
+  root 'home#index'
 
-  resources :projects, only: %i[index create new edit update destroy]
+  resources :projects, only: %i[index create new edit update destroy show]
 
   # devise_for :users, controllers: { sessions: 'users/sessions' }
 end

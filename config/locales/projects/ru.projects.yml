@@ -8,12 +8,13 @@ ru:
       platform: Платформа
     create:
       success: Проект успешно создан
-    current_reviews: Текущие ревью
+    all_projects: Все проекты
     destroy:
       confirm: Вы уверены, что хотите удалить проект?
       success: Проект успешно удалён
     links:
       back_to_projects: Назад к проектам
       save: Сохранить проект
+      select_projects: Выбрать проект
     new_project: Новый проект
     
