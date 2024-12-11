@@ -5,4 +5,9 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_many :projects, dependent: :destroy
+  has_many :reviews
+  has_many :review_assignments, dependent: :destroy
+  has_many :review_performs, dependent: :destroy
+  has_many :reviews, through: :review_assignments
+  has_many :reviews, through: :review_performs
 end

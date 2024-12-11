@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2024_12_09_193323) do
+ActiveRecord::Schema[8.0].define(version: 2024_12_11_195131) do
   create_table "projects", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -20,6 +20,35 @@ ActiveRecord::Schema[8.0].define(version: 2024_12_09_193323) do
     t.string "platform"
     t.integer "user_id", null: false
     t.index ["user_id"], name: "index_projects_on_user_id"
+  end
+
+  create_table "review_assignments", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "user_id"
+    t.integer "review_id"
+    t.index ["review_id"], name: "index_review_assignments_on_review_id"
+    t.index ["user_id"], name: "index_review_assignments_on_user_id"
+  end
+
+  create_table "review_performs", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "user_id"
+    t.integer "review_id"
+    t.index ["review_id"], name: "index_review_performs_on_review_id"
+    t.index ["user_id"], name: "index_review_performs_on_user_id"
+  end
+
+  create_table "reviews", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "platform_id"
+    t.string "title"
+    t.integer "user_id"
+    t.integer "project_id", null: false
+    t.index ["project_id"], name: "index_reviews_on_project_id"
+    t.index ["user_id"], name: "index_reviews_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -35,4 +64,6 @@ ActiveRecord::Schema[8.0].define(version: 2024_12_09_193323) do
   end
 
   add_foreign_key "projects", "users"
+  add_foreign_key "reviews", "projects"
+  add_foreign_key "reviews", "users"
 end
